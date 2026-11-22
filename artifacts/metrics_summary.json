@@ -1,0 +1,151 @@
+{
+  "metadata": {
+    "timestamp": "2026-11-22 05:03:36 UTC",
+    "total_observations": 9357,
+    "features": [
+      "CO_True",
+      "Sensor_CO",
+      "Sensor_NMHC",
+      "NOx_True",
+      "Sensor_NOx",
+      "NO2_True",
+      "Sensor_NO2",
+      "Sensor_O3",
+      "Temperature",
+      "Relative_Humidity",
+      "Absolute_Humidity"
+    ],
+    "stratified_split": "80/20 (random_state=42)",
+    "scaler": "StandardScaler",
+    "regulatory_cap_benzene_ug_m3": 10.0
+  },
+  "regression_leaderboard": [
+    {
+      "Model": "Polynomial Regression (Deg 2)",
+      "R\u00b2 Score": 0.9998,
+      "RMSE": 0.0942,
+      "MAE": 0.0548,
+      "MAPE": 0.013,
+      "Var(Residuals)": 0.0089
+    },
+    {
+      "Model": "Decision Tree Regressor (Depth 8)",
+      "R\u00b2 Score": 0.9997,
+      "RMSE": 0.1198,
+      "MAE": 0.0544,
+      "MAPE": 0.0084,
+      "Var(Residuals)": 0.0143
+    },
+    {
+      "Model": "SVR (RBF Kernel)",
+      "R\u00b2 Score": 0.9995,
+      "RMSE": 0.1766,
+      "MAE": 0.0694,
+      "MAPE": 0.0124,
+      "Var(Residuals)": 0.0312
+    },
+    {
+      "Model": "KNN Regressor (K=7)",
+      "R\u00b2 Score": 0.9816,
+      "RMSE": 1.0273,
+      "MAE": 0.6313,
+      "MAPE": 0.0761,
+      "Var(Residuals)": 1.0406
+    },
+    {
+      "Model": "Linear Regression",
+      "R\u00b2 Score": 0.9782,
+      "RMSE": 1.118,
+      "MAE": 0.8274,
+      "MAPE": 0.2186,
+      "Var(Residuals)": 1.2481
+    }
+  ],
+  "classification_leaderboard": [
+    {
+      "Model": "Decision Tree Classifier (Depth 8)",
+      "Accuracy": 0.9984,
+      "Precision": 1.0,
+      "Recall": 0.996,
+      "F1-Score": 0.998,
+      "ROC-AUC": 0.9987
+    },
+    {
+      "Model": "SVC (RBF Kernel)",
+      "Accuracy": 0.9941,
+      "Precision": 0.9908,
+      "Recall": 0.9947,
+      "F1-Score": 0.9928,
+      "ROC-AUC": 0.9999
+    },
+    {
+      "Model": "Logistic Regression (Raw)",
+      "Accuracy": 0.9931,
+      "Precision": 0.9934,
+      "Recall": 0.9895,
+      "F1-Score": 0.9914,
+      "ROC-AUC": 0.9998
+    },
+    {
+      "Model": "KNN Classifier (K=7)",
+      "Accuracy": 0.9626,
+      "Precision": 0.9551,
+      "Recall": 0.9526,
+      "F1-Score": 0.9538,
+      "ROC-AUC": 0.9946
+    },
+    {
+      "Model": "Logistic Regression (3 PCs)",
+      "Accuracy": 0.9482,
+      "Precision": 0.9402,
+      "Recall": 0.9315,
+      "F1-Score": 0.9358,
+      "ROC-AUC": 0.99
+    },
+    {
+      "Model": "Gaussian Naive Bayes",
+      "Accuracy": 0.9284,
+      "Precision": 0.9085,
+      "Recall": 0.9157,
+      "F1-Score": 0.9121,
+      "ROC-AUC": 0.9827
+    }
+  ],
+  "clustering_evaluation": [
+    {
+      "k": 2,
+      "Inertia (WCSS)": 53744.88,
+      "Silhouette_Score": 0.3067
+    },
+    {
+      "k": 3,
+      "Inertia (WCSS)": 43803.83,
+      "Silhouette_Score": 0.2339
+    },
+    {
+      "k": 4,
+      "Inertia (WCSS)": 37974.79,
+      "Silhouette_Score": 0.2263
+    },
+    {
+      "k": 5,
+      "Inertia (WCSS)": 33968.07,
+      "Silhouette_Score": 0.2098
+    },
+    {
+      "k": 6,
+      "Inertia (WCSS)": 30898.91,
+      "Silhouette_Score": 0.2087
+    },
+    {
+      "k": 7,
+      "Inertia (WCSS)": 28656.35,
+      "Silhouette_Score": 0.2106
+    },
+    {
+      "k": 8,
+      "Inertia (WCSS)": 26740.84,
+      "Silhouette_Score": 0.2057
+    }
+  ]
+}
