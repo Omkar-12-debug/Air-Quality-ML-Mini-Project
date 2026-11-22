@@ -204,10 +204,143 @@ div[data-testid="stDataFrame"] {
     color: #CBD5E1;
 }
 
-/* Radio & Navigation Pills */
-div[role="radiogroup"] label {
-    background: transparent !important;
-    border: none !important;
+/* Hide Sidebar Completely */
+section[data-testid="stSidebar"],
+div[data-testid="collapsedControl"] {
+    display: none !important;
+}
+
+/* Top Command Header Banner */
+.top-command-header {
+    background: rgba(17, 24, 39, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-branding {
+    display: flex;
+    flex-direction: column;
+}
+
+.command-title {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #F8FAFC;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.station-sub {
+    font-size: 0.76rem;
+    color: #64748B;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+    margin-top: 0.2rem;
+}
+
+.header-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+}
+
+.meta-pill {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 0.35rem 0.65rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #CBD5E1;
+    white-space: nowrap;
+}
+
+.pill-tag-cyan { color: #00F2FE; font-weight: 700; margin-right: 4px; }
+.pill-tag-emerald { color: #10B981; font-weight: 700; margin-right: 4px; }
+.pill-tag-violet { color: #8B5CF6; font-weight: 700; margin-right: 4px; }
+.pill-tag-amber { color: #F59E0B; font-weight: 700; margin-right: 4px; }
+.pill-tag-coral { color: #EF4444; font-weight: 700; margin-right: 4px; }
+
+/* Horizontal Top Navigation Tabs Bar */
+div[data-testid="stRadio"] > div[role="radiogroup"] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.4rem 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 41, 59, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 9px !important;
+    padding: 0.65rem 1rem !important;
+    cursor: pointer !important;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin: 0 !important;
+    min-width: 130px;
+    text-align: center;
+}
+
+/* Hide default circle in radio */
+div[data-testid="stRadio"] > div[role="radiogroup"] > label > div:first-child {
+    display: none !important;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label:hover {
+    background: rgba(0, 242, 254, 0.08) !important;
+    border-color: rgba(0, 242, 254, 0.35) !important;
+    box-shadow: 0 4px 16px rgba(0, 242, 254, 0.12) !important;
+    transform: translateY(-1px);
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label:has(input:checked) {
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.18) 0%, rgba(14, 165, 233, 0.22) 100%) !important;
+    border-color: #00F2FE !important;
+    box-shadow: 0 0 16px rgba(0, 242, 254, 0.28) !important;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label p {
+    font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #94A3B8 !important;
+    letter-spacing: 0.02em !important;
+    margin: 0 !important;
+}
+
+div[data-testid="stRadio"] > div[role="radiogroup"] > label:has(input:checked) p {
+    color: #00F2FE !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
 }
 </style>
 """

@@ -31,7 +31,7 @@ st.set_page_config(
     page_title="Urban Air Quality Telemetry & ML Command Center",
     page_icon="📡",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 # Apply Cyber-Dark CSS
@@ -52,56 +52,48 @@ def initialize_system():
 # Initialize telemetry pipeline
 df_clean, artifacts = initialize_system()
 
-# Sidebar Navigation & System Telemetry Status
-with st.sidebar:
-    st.markdown("""
-    <div style="padding: 0.5rem 0 1rem 0;">
-        <div class="telemetry-badge">
-            <span class="pulse-dot"></span> TELEMETRY ONLINE
-        </div>
-        <div style="font-size: 1.3rem; font-weight: 800; color: #F8FAFC; letter-spacing: -0.02em;">
-            ATMOS-ML COMMAND
-        </div>
-        <div style="font-size: 0.75rem; color: #64748B; font-family: 'JetBrains Mono', monospace;">
-            STATION ID: IT-RM-AIRUCI-04
+# Sleek Top Command Header Banner & Telemetry Branding
+st.markdown("""
+<div class="top-command-header">
+    <div class="header-left">
+        <div class="header-branding">
+            <div class="telemetry-badge">
+                <span class="pulse-dot"></span> TELEMETRY ONLINE
+            </div>
+            <div class="command-title">ATMOS-ML COMMAND</div>
+            <div class="station-sub">STATION ID: IT-RM-AIRUCI-04 • URBAN ATMOSPHERIC TELEMETRY</div>
         </div>
     </div>
-    """, unsafe_allow_html=True)
-
-    page = st.radio(
-        "NAVIGATION MODULES",
-        [
-            "📡 Executive Overview & Telemetry EDA",
-            "🏆 Model Leaderboard & Benchmarking",
-            "🔬 Deep-Dive Model Diagnostics",
-            "🌀 Unsupervised Regime Clustering",
-            "⚡ Live Air Quality Simulator"
-        ],
-        index=0
-    )
-
-    st.markdown("---")
-    st.markdown("""
-    <div style="font-size: 0.78rem; color: #94A3B8; font-family: 'JetBrains Mono', monospace; line-height: 1.6;">
-        <span style="color: #00F2FE;">[DATASET]</span> AirQualityUCI<br>
-        <span style="color: #10B981;">[RECORDS]</span> 9,357 Observations<br>
-        <span style="color: #8B5CF6;">[SENSORS]</span> 11 Telemetry Inputs<br>
-        <span style="color: #F59E0B;">[TARGET]</span> Benzene (C6H6 µg/m³)<br>
-        <span style="color: #EF4444;">[LIMIT]</span> 10.0 µg/m³ (WHO/EU)
+    <div class="header-pills">
+        <div class="meta-pill"><span class="pill-tag-cyan">[DATASET]</span> AirQualityUCI</div>
+        <div class="meta-pill"><span class="pill-tag-emerald">[RECORDS]</span> 9,357 Observations</div>
+        <div class="meta-pill"><span class="pill-tag-violet">[SENSORS]</span> 11 Telemetry Inputs</div>
+        <div class="meta-pill"><span class="pill-tag-amber">[TARGET]</span> Benzene (C6H6 µg/m³)</div>
+        <div class="meta-pill"><span class="pill-tag-coral">[WHO CAP]</span> 10.0 µg/m³</div>
     </div>
-    """, unsafe_allow_html=True)
+</div>
+""", unsafe_allow_html=True)
 
-    st.markdown("---")
-    st.markdown(
-        "<div style='font-size: 0.72rem; color: #475569;'>Designed for Production Urban Atmospheric Telemetry & Predictive ML Operations.</div>",
-        unsafe_allow_html=True
-    )
+# Horizontal Navigation Tab Bar
+nav_tab = st.radio(
+    "MAIN NAVIGATION",
+    [
+        "Overview & EDA",
+        "Leaderboard",
+        "Diagnostics",
+        "Clustering",
+        "Live Simulator"
+    ],
+    horizontal=True,
+    label_visibility="collapsed",
+    key="main_navigation_tab"
+)
 
 
 # ==============================================================================
 # PAGE 1: EXECUTIVE OVERVIEW & TELEMETRY EDA
 # ==============================================================================
-if page == "📡 Executive Overview & Telemetry EDA":
+if nav_tab == "Overview & EDA":
     st.markdown("""
     <div class="app-title">Atmospheric Telemetry & Exploratory Analysis</div>
     <div class="app-subtitle">
@@ -267,7 +259,7 @@ if page == "📡 Executive Overview & Telemetry EDA":
 # ==============================================================================
 # PAGE 2: MODEL LEADERBOARD & BENCHMARKING
 # ==============================================================================
-elif page == "🏆 Model Leaderboard & Benchmarking":
+elif nav_tab == "Leaderboard":
     st.markdown("""
     <div class="app-title">Master Model Leaderboard & Benchmarking</div>
     <div class="app-subtitle">
@@ -415,7 +407,7 @@ elif page == "🏆 Model Leaderboard & Benchmarking":
 # ==============================================================================
 # PAGE 3: DEEP-DIVE MODEL DIAGNOSTICS
 # ==============================================================================
-elif page == "🔬 Deep-Dive Model Diagnostics":
+elif nav_tab == "Diagnostics":
     st.markdown("""
     <div class="app-title">Individual Model Deep-Dive Diagnostics</div>
     <div class="app-subtitle">
@@ -648,7 +640,7 @@ elif page == "🔬 Deep-Dive Model Diagnostics":
 # ==============================================================================
 # PAGE 4: UNSUPERVISED ATMOSPHERIC REGIME CLUSTERING
 # ==============================================================================
-elif page == "🌀 Unsupervised Regime Clustering":
+elif nav_tab == "Clustering":
     st.markdown("""
     <div class="app-title">Unsupervised Atmospheric Regime Clustering</div>
     <div class="app-subtitle">
@@ -823,7 +815,7 @@ elif page == "🌀 Unsupervised Regime Clustering":
 # ==============================================================================
 # PAGE 5: LIVE AIR QUALITY INFERENCE SIMULATOR
 # ==============================================================================
-elif page == "⚡ Live Air Quality Simulator":
+elif nav_tab == "Live Simulator":
     st.markdown("""
     <div class="app-title">Live Air Quality Multi-Model Simulator</div>
     <div class="app-subtitle">

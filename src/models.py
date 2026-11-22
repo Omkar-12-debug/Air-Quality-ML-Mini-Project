@@ -525,6 +525,7 @@ def build_and_cache_artifacts(
 
     artifacts = {
         'splits': splits,
+        'scaler': splits['scaler'],
         'regression': reg_results,
         'classification': clf_results,
         'clustering': clustering_results,
@@ -546,6 +547,12 @@ def predict_all_models(
     severe pollution risk probabilities from all 6 classifiers.
     """
     from src.data_pipeline import FEATURE_COLS
+
+    scaler = artifacts.get('scaler')
+    if scaler is None and 'splits' in artifacts:
+        scaler = artifacts['splits'].get('scaler')
+    if scaler is None:
+        raise ValueError("StandardScaler not found in artifacts dictionary.")
 
     input_df = pd.DataFrame([[input_values[col] for col in FEATURE_COLS]], columns=FEATURE_COLS)
     # Standardize input values with feature names to preserve schema
